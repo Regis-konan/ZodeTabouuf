@@ -19,7 +19,7 @@ function renderLayout(active) {
   const ORD = ['africain', 'plat', 'dessert', 'petit-dejeuner', 'boisson', 'snack', 'rapide', 'vegetarien'];
   const cats = ORD.map(id => CATS.find(c => c.id === id)).filter(Boolean);
   const nb = (typeof allRecettes !== 'undefined' && allRecettes.length) ? allRecettes.length : 0;
-  const desc = nb ? `${nb} recettes, de l’Afrique aux classiques.` : 'Des recettes de l’Afrique aux classiques.';
+  const desc = nb ? `${nb} recettes, recettes à découvrir.` : 'Des recettes modernes aux classiques.';
   $('#app-footer').innerHTML = `<footer class="ft">
   <div class="ft__shadow" aria-hidden="true"></div>
   <div class="ft__cream" aria-hidden="true"></div>
