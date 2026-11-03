@@ -1,0 +1,63 @@
+/* FAVORIS — responsive mobile & tablette. À charger APRÈS favoris.css (rien d'autre n'est modifié). */
+
+.tk__fab{display:none!important}   /* remplacé par la feuille « Ma liste » (voir ticket-mobile.js) */
+.tk__tg{display:none}
+.tk-bd[hidden],.tk-snack[hidden]{display:none}
+
+@media (max-width:959.98px){
+  #main{overflow-x:clip}
+  .fv__cols{gap:24px;padding-bottom:0}
+  .tk{order:-1}                     /* le ticket est en haut de page, même sans JavaScript */
+  .tk-spacer{order:-1}
+
+  /* Ticket replié (seulement quand le script est actif : sans lui, le ticket reste complet) */
+  .tk__tg{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;margin-top:14px;border:0;border-radius:99px;background:var(--ink);color:var(--sable);font:700 .9375rem var(--f-text);cursor:pointer}
+  .tk__tg::after{content:"";width:8px;height:8px;margin:-3px 0 0 10px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .25s,margin .25s}
+  .tk.is-open .tk__tg::after{margin-top:4px;transform:rotate(-135deg)}
+  .tk.is-js:not(:has(.tk__pg)) :is(.tk__tg,.tk__s){display:none}
+  .tk.is-js:not(.is-open):has(.tk__pg) :is(.tk__bar,.tk__perf,.tk__body,.tk__foot){display:none}
+
+  /* Ticket ouvert = feuille qui monte du bas : on la voit de n'importe où, sans remonter la page */
+  .tk.is-js.is-open{position:fixed;left:max(0px,calc(50% - 280px));right:max(0px,calc(50% - 280px));bottom:0;z-index:71;max-height:86svh;padding-top:32px;border-radius:28px 28px 0 0;box-shadow:0 -10px 40px rgba(36,18,61,.3);animation:feuille-tk .35s cubic-bezier(.2,.8,.2,1)}
+  .tk.is-js.is-open::before{content:"";position:absolute;top:12px;left:50%;width:44px;height:5px;border-radius:3px;background:rgba(36,18,61,.25);transform:translateX(-50%)}
+  .tk.is-open .tk__body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+  .tk-bd{position:fixed;inset:0;z-index:70;background:rgba(36,18,61,.5)}
+  body.sheet-open{overflow:hidden}
+
+  /* Annonce brève après « + Liste » : « Ma liste · 6 articles — Voir » */
+  .tk-snack{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:14px;padding:8px 8px 8px 20px;border-radius:var(--r-pill);background:var(--lime);color:var(--ink);font-weight:700;box-shadow:0 0 0 2px var(--ink),0 12px 26px -8px rgba(36,18,61,.6);white-space:nowrap;max-width:calc(100vw - 32px);animation:snack-in .3s cubic-bezier(.2,.8,.2,1)}
+  .tk-snack .ghost{background:var(--ink);color:var(--sable);box-shadow:none}   /* lime + ink : visible aussi bien sur le fond clair que sur le pied de page sombre */
+  body:has(.undo:not([hidden])) .tk-snack{bottom:84px}
+
+  /* Fiche compacte : photo à gauche, titre puis durée · niveau, actions sur une rangée basse */
+  .fvr{flex-wrap:wrap;gap:10px;padding:14px}
+  .fvr__a{flex:1 1 100%;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-areas:"i t" "i m";column-gap:14px;row-gap:6px;align-items:start}
+  .fvr__i{grid-area:i;width:72px;padding:4px 4px 10px}
+  .fvr__t{grid-area:t}
+  .fvr__m{grid-area:m;display:flex;align-items:baseline;gap:8px;justify-items:start;text-align:left}
+  .fvr__m b{font-size:1.25rem}
+  .fvr__m>small{display:inline;margin-top:0}
+  .fvr__act{flex:1 1 100%;justify-content:space-between;padding-top:10px;border-top:1.5px solid rgba(36,18,61,.12)}
+  .fvr__x:only-child{margin-left:auto}
+}
+@keyframes snack-in{from{transform:translate(-50%,18px);opacity:0}}
+@keyframes feuille-tk{from{transform:translateY(36px);opacity:0}}
+
+@media (min-width:641px) and (max-width:959.98px){
+  .fv__list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .tk.is-open .tk__l{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+  .tk.is-open .tk__l li:nth-child(2){border-top:0}
+}
+@media (min-width:960px){.tk-bd,.tk-snack{display:none!important}}
+
+@media (hover:none){
+  .fvr:hover{transform:none;box-shadow:none}
+  .fvr:hover .fvr__i{transform:rotate(-3deg)}
+  .fvr:nth-child(even):hover .fvr__i{transform:rotate(2.5deg)}
+  .fvr__x:hover{transform:none}
+  .fvr__x--add:hover{background:transparent;color:var(--bissap)}
+  .fvr__x--add:hover svg{fill:none}
+}
+
+/* Pas de bandeau « retiré · Annuler » : retirer un favori est immédiat, sans notification */
+.undo{display:none!important}

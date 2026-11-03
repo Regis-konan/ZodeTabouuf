@@ -1,0 +1,113 @@
+/* Police manuscrite : fonts/allura-400.woff2 (npm i @fontsource/allura) */
+@font-face{font-family:Allura;src:url(../../../fonts/allura-400.woff2) format("woff2");font-weight:400;font-display:swap}
+.rc{padding-top:8px;padding-bottom:96px}
+.crumb{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 16px;font-size:.875rem;opacity:.85}
+.crumb a:hover{text-decoration:underline}
+.ct{display:none}
+/* La fiche : une page de livre, papier légèrement texturé */
+.sheet{display:grid;gap:24px;padding:24px 18px 32px;border-radius:28px;grid-template-areas:"photo" "head" "tabs" "ing" "prep";
+  background:#FCFAF6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  box-shadow:0 1px 0 rgba(36,18,61,.08),0 30px 60px -34px rgba(36,18,61,.3)}
+.sh{grid-area:head;min-width:0}.plate{grid-area:photo}.tabs{grid-area:tabs}.ing{grid-area:ing;min-width:0}.prep{grid-area:prep;min-width:0}
+.kick{display:inline-flex;align-items:center;gap:10px;font:700 .75rem var(--f-text);letter-spacing:.16em;text-transform:uppercase}
+.kick::before,.kick::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--bissap)}
+.kick:hover{color:var(--bissap-txt)}
+.rc h1.script{margin:10px 0 8px;font:400 clamp(3.2rem,15vw,4.6rem)/.95 Allura,Fraunces,serif;letter-spacing:0}
+.sub{margin:0 0 8px;font-weight:500;opacity:.7}
+.lead{max-width:44ch;font-size:1.0625rem;opacity:.85}
+.rmeta{display:flex;margin:20px 0 0;border-block:1px solid rgba(36,18,61,.3)}
+.rmeta div{flex:1;padding:10px 0 10px 14px}
+.rmeta div:first-child{padding-left:0}
+.rmeta div+div{border-left:1px solid rgba(36,18,61,.3)}
+.rmeta dt{font:700 .625rem var(--f-text);letter-spacing:.14em;text-transform:uppercase;opacity:.65}
+.rmeta dd{margin:3px 0 0;font:400 clamp(1.1rem,4.4vw,1.5rem) var(--f-display);letter-spacing:-.02em}
+/* Actions : sur mobile, une barre fixe en bas de l'écran */
+.ract{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(252,250,246,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(36,18,61,.12)}
+.ract .btn{flex:1}
+.btn[aria-pressed=true]{background:var(--bissap);color:#fff}
+#fav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+#fav[aria-pressed=true]{background:var(--bissap);color:#fff;box-shadow:none}
+#fav[aria-pressed=true] svg{fill:currentColor}
+.icb{display:grid;place-items:center;width:44px;height:44px;flex:none;border:0;border-radius:50%;background:none;box-shadow:inset 0 0 0 1.5px var(--ink);cursor:pointer;transition:background-color .15s,color .15s}
+.icb:hover{background:var(--ink);color:var(--sable)}
+.icb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#print{display:none}
+/* Photo en rond, comme une assiette posée sur la page */
+.plate{position:relative;justify-self:center;width:min(78%,340px);aspect-ratio:1;margin:8px auto 4px}
+.plate img{width:100%;height:100%;object-fit:cover;border-radius:50%;background:var(--sable-2);box-shadow:0 0 0 10px rgba(255,255,255,.8),0 24px 50px -12px rgba(36,18,61,.38)}
+.stamp{position:absolute;left:-10px;bottom:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:96px;aspect-ratio:1;border-radius:50%;background:var(--bissap);color:#fff;text-align:center;line-height:1;box-shadow:0 10px 24px -8px rgba(36,18,61,.5)}
+.stamp small{font:700 .5rem var(--f-text);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.stamp b{font:400 2.1rem/1 var(--f-display);letter-spacing:-.04em}
+.stamp span{font:700 .6875rem var(--f-text);letter-spacing:.04em}
+/* Onglets mobiles */
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:8px;padding:8px 0;background:#FCFAF6}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:99px;background:none;box-shadow:inset 0 0 0 1.5px var(--ink);font:500 1rem var(--f-text);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--sable);font-weight:700}
+.sheet[data-tab=ing] .prep,.sheet[data-tab=prep] .ing{display:none}
+/* Étiquettes de section */
+.tag{display:flex;align-items:center;gap:18px;margin:0 0 6px}
+.tag span{padding:4px 24px;background:#E8DDCF;font:400 2rem/1.25 Allura,Fraunces,serif;letter-spacing:0}
+.tag::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.25}
+.cnt{margin:6px 0 0;font-size:.8125rem;opacity:.7}
+.portions{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:12px 0 4px;font-size:1.0625rem}
+.portions output{font:600 1.375rem var(--f-display)}
+.portions button{width:44px;height:44px;border:0;border-radius:50%;background:none;font-size:1.5rem;line-height:1;cursor:pointer}
+.portions button:hover{background:rgba(36,18,61,.08)}
+.portions #moins{margin-left:auto}
+.pnote{margin:0 0 10px;font-size:.8125rem;opacity:.8}
+.ing ul{margin:10px 0 18px;padding:0;list-style:none}
+.ing li{border-bottom:1px solid rgba(36,18,61,.16)}
+.ing label{display:flex;align-items:baseline;gap:8px;padding:12px 4px;cursor:pointer;font-size:1.0625rem}
+.ing label::before{content:"•";flex:none;width:1ch}
+.ing input{position:absolute;opacity:0;pointer-events:none}
+.ing label:has(:focus-visible){outline:var(--focus);outline-offset:2px;border-radius:8px}
+.ing b{font-weight:700}
+.ing input:checked~span,.ing input:checked~b{text-decoration:line-through;opacity:.5}
+.ing .ghost{margin-top:4px}
+.steps{margin:6px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{border-bottom:1px solid rgba(36,18,61,.16)}
+.steps label{display:flex;gap:14px;padding:16px 4px;cursor:pointer}
+.steps label::before{content:counter(s) ".";counter-increment:s;flex:none;min-width:2.2ch;font:400 1.5rem/1.2 var(--f-display)}
+.steps input{position:absolute;opacity:0;pointer-events:none}
+.steps label:has(:focus-visible){outline:var(--focus);outline-offset:2px;border-radius:8px}
+.steps p{font-size:1.0625rem;line-height:1.55}
+.steps li:has(input:checked) p,.steps li:has(input:checked) label::before{opacity:.42}
+.steps li:has(input:checked) p{text-decoration:line-through}
+.astuce{margin-top:24px;padding:18px 20px;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(36,18,61,.3)}
+.astuce small{font:700 .75rem var(--f-text);letter-spacing:.12em;text-transform:uppercase}
+.astuce p{margin-top:6px;font-size:1.0625rem}
+.more{margin-top:56px}
+.more h2{font-size:var(--t-h2)}
+.more .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 12px;margin-top:16px}
+.intro{padding:48px 0;text-align:center}
+#sortir{display:none}
+.toasts,.undo{bottom:84px}
+@media (min-width:900px){
+  .rc{padding-bottom:0}
+  .sheet{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"head photo" "ing prep";gap:44px 64px;padding:52px 56px 60px}
+  .tabs{display:none}
+  .sheet[data-tab] .ing,.sheet[data-tab] .prep{display:block}
+  .rc h1.script{font-size:clamp(3.4rem,5.2vw,5rem);margin-top:14px}
+  .rmeta{margin:22px 0 18px}
+  .rmeta div{padding:12px 0 12px 16px}
+  .ract{position:static;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;flex-wrap:wrap}
+  .ract .btn{flex:0 0 auto}
+  #print{display:grid}
+  .plate{justify-self:end;width:100%;max-width:420px;margin:12px 12px 12px 0}
+  .plate img{box-shadow:0 0 0 12px rgba(255,255,255,.8),0 28px 60px -12px rgba(36,18,61,.38)}
+  .stamp{left:-14px;bottom:8px;width:112px}
+  .stamp small{font-size:.5625rem}.stamp b{font-size:2.5rem}.stamp span{font-size:.75rem}
+  .ing{align-self:start;position:sticky;top:16px}
+  .more .grid{grid-template-columns:repeat(4,1fr)}
+  .toasts,.undo{bottom:20px}
+}
+/* Mode cuisine : seulement ingrédients et étapes, texte agrandi */
+body.cuisine #app-header,body.cuisine #app-footer,body.cuisine .sh,body.cuisine .plate,body.cuisine .more,body.cuisine .crumb{display:none}
+body.cuisine .ct{display:block;margin:16px 0 20px;font-size:1.125rem}
+body.cuisine .rc{padding-bottom:24px}
+body.cuisine .sheet{grid-template-areas:"tabs" "ing" "prep";background:none;box-shadow:none;padding:0}
+@media (min-width:900px){body.cuisine .sheet{grid-template-columns:1fr;gap:28px}body.cuisine .ing{position:static}}
+body.cuisine .steps p{font-size:1.5rem;line-height:1.4}
+body.cuisine .ing label{font-size:1.25rem}
+body.cuisine #sortir{display:inline-flex;position:fixed;right:16px;bottom:16px;z-index:60}
+@media print{#app-header,#app-footer,.ract,.tabs,.more,.portions button,.toasts,#sortir,.undo{display:none!important}body{background:#fff}.sheet{display:block;background:#fff;box-shadow:none;padding:0}.sheet .ing,.sheet .prep{display:block!important;position:static}.plate{width:200px;margin:0}.plate img{box-shadow:none}}

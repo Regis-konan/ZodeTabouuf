@@ -1,0 +1,56 @@
+/* CATÉGORIES — grille « carte éditoriale » (même langage que « Par envie » sur l'accueil) */
+.cg{padding-top:8px;padding-bottom:clamp(40px,6vw,80px)}
+.cg__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;margin-bottom:clamp(20px,3vw,36px)}
+.cg h1{margin:0;font-size:clamp(3rem,10vw,6rem);line-height:.92;letter-spacing:-.02em}
+.cg h1 i{color:var(--bissap)}
+.cg__sub{margin:0;max-width:34ch;font-size:1.0625rem;line-height:1.45;opacity:.85}
+
+.cg__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap,12px)}
+/* container-type : les enfants peuvent se dimensionner d'après la largeur réelle de la tuile (unités cqw) */
+.cg-c{position:relative;overflow:hidden;isolation:isolate;container-type:inline-size;display:flex;flex-direction:column;justify-content:space-between;min-height:200px;padding:20px;border-radius:var(--r-card,28px);background:var(--lilas);color:var(--ink);text-decoration:none;transition:transform .2s}
+.cg-c:hover{transform:translateY(-4px)}
+.cg-c:focus-visible{outline:3px solid var(--bissap);outline-offset:3px}
+
+/* Libellé : petites tuiles = deux lignes voulues (« 15 recettes » / « dès 25 min »), sans « · » orphelin ;
+   grande tuile = une ligne reliée par « · ». La place de la flèche est réservée à droite. */
+.cg-c__n{position:relative;z-index:1;padding-right:44px;font:700 .6875rem/1.35 var(--f-text);letter-spacing:.1em;text-transform:uppercase}
+.cg-c:not(.cg-c--africain) .cg-c__n{display:grid;gap:1px}
+.cg-c--africain .cg-c__n{padding-right:56px}
+.cg-c--africain .cg-c__d::before{content:" · ";white-space:pre}
+
+.cg-c__t{position:relative;z-index:1;max-width:72%}
+.cg-c h2{margin:0 0 6px;font-size:clamp(1.35rem,5vw,2rem);line-height:1.02}
+.cg-c p{display:none;margin:0;font-size:.875rem;line-height:1.4;opacity:.85}
+.cg-c .arrow{position:absolute;top:14px;right:14px;z-index:2;background:var(--ink);color:var(--sable)}
+.cg-c__p{position:absolute;right:-26px;bottom:-26px;z-index:0;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--sable);box-shadow:0 0 0 5px rgba(246,239,228,.4)}
+.cg-c__p img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cg-c:hover .cg-c__p img{transform:scale(1.08)}
+
+/* Une couleur par tuile, comme sur l'accueil */
+.cg-c--africain{grid-column:span 2;min-height:270px;background:var(--bissap);color:#fff}
+.cg-c--africain h2{font-size:clamp(2.2rem,7vw,3.6rem);max-width:12ch}
+.cg-c--africain p{display:block;max-width:34ch}
+.cg-c--africain .cg-c__p{width:44%;right:-34px;bottom:-54px}
+.cg-c--africain .arrow{background:var(--lime);color:var(--ink)}
+.cg-c--plat{background:var(--ink);color:var(--sable)}
+.cg-c--plat .arrow,.cg-c--surprise .arrow{background:var(--lime);color:var(--ink)}
+.cg-c--dessert,.cg-c--rapide{background:var(--lime)}
+.cg-c--petit-dejeuner{background:var(--palme)}
+.cg-c--snack{background:var(--sable);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.cg-c--surprise{background:var(--ink);color:var(--sable)}
+.cg-c--surprise h2{color:var(--lime)}
+.cg-c__q{position:absolute;right:-18px;bottom:-18px;z-index:0;display:grid;place-content:center;width:46%;aspect-ratio:1;border-radius:50%;background:var(--lime);color:var(--ink);font-size:clamp(3rem,10vw,5rem);line-height:1;transform:rotate(-8deg);transition:transform .3s}
+.cg-c--surprise:hover .cg-c__q{transform:rotate(8deg) scale(1.06)}
+
+@media (min-width:768px){
+  .cg__grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:210px}
+  .cg-c{min-height:0}
+  .cg-c h2{font-size:clamp(1.15rem,2.2vw,1.8rem)}
+  .cg-c p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  /* le texte s'arrête avant la photo (ou le « ? ») : largeur = place libre à gauche du disque, calculée d'après la largeur réelle de la tuile */
+  .cg-c:not(.cg-c--africain) .cg-c__t{max-width:min(72%,calc(54cqw + 10px))}
+  .cg-c--africain{grid-row:span 2;min-height:0}
+  .cg-c--africain h2{font-size:clamp(2.4rem,4.4vw,4rem)}
+  .cg-c--africain .cg-c__p{width:52%;right:-44px;bottom:-70px}
+}
+@media (prefers-reduced-motion:reduce){.cg-c,.cg-c__p img,.cg-c__q{transition:none}.cg-c:hover{transform:none}}

@@ -1,0 +1,102 @@
+/* FAVORIS — « mon carnet » : fiches compactes + ticket de courses (identité propre à cette page) */
+.fv{padding-top:8px;padding-bottom:clamp(40px,6vw,80px)}
+.fv h1{margin:0;font-size:clamp(3rem,9vw,5.5rem);line-height:.92;letter-spacing:-.02em}
+.fv h1 i,.dem h2 i{color:var(--bissap)}
+.fv__k{margin:0 0 10px;font:700 .75rem var(--f-text);letter-spacing:.18em;text-transform:uppercase;color:var(--bissap-txt,#B81A4C)}
+
+.fv__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;margin-bottom:22px}
+.fv__tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.fv__n{margin:0;font-size:.9375rem}
+.fv__n b{margin-right:4px;font-size:2rem;font-weight:400;line-height:1;vertical-align:-.12em}
+.fv__tools .ghost{min-height:44px}
+.fv .chips{margin-bottom:22px}
+
+.fv__cols{display:grid;gap:32px;align-items:start}
+.fv__list{display:grid;gap:12px}
+
+/* Fiche de recette : compacte, photo type polaroid */
+.fvr{position:relative;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;border-radius:20px;background:var(--sable-2);transition:transform .2s,box-shadow .2s}
+.fvr:hover{transform:translateY(-2px);box-shadow:0 12px 24px -16px rgba(36,18,61,.45)}
+.fvr__a{display:flex;align-items:center;gap:16px;flex:1;min-width:0;color:inherit;text-decoration:none}
+.fvr__a:focus-visible{outline:3px solid var(--bissap);outline-offset:4px;border-radius:12px}
+.fvr__i{flex:none;width:88px;padding:5px 5px 13px;background:#fff;box-shadow:0 8px 14px -8px rgba(36,18,61,.45);transform:rotate(-3deg);transition:transform .25s}
+.fvr:nth-child(even) .fvr__i{transform:rotate(2.5deg)}
+.fvr:hover .fvr__i{transform:rotate(0) scale(1.04)}
+.fvr__i img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.fvr__t{flex:1;min-width:0}
+.fvr__t b{display:block;font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+.fvr__t span{display:block;margin-top:5px;font-size:.8125rem;opacity:.75}
+.fvr__m{flex:none;display:grid;justify-items:end;text-align:right}
+.fvr__m b{font-size:1.7rem;font-weight:400;line-height:1;letter-spacing:-.02em}
+.fvr__m b small{font:400 .75rem var(--f-text)}
+.fvr__m>small{margin-top:4px;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.fvr__act{flex:none;display:flex;align-items:center;gap:8px}
+.fvr__s{min-height:44px;padding:0 16px;border:0;border-radius:99px;background:transparent;box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink);font:700 .875rem var(--f-text);white-space:nowrap;cursor:pointer;transition:background-color .15s}
+.fvr__s[aria-pressed="true"]{background:var(--lime);box-shadow:inset 0 0 0 2px var(--ink)}
+.fvr__s:focus-visible{outline:3px solid var(--bissap);outline-offset:2px}
+.fvr__x{flex:none;display:grid;place-content:center;width:44px;height:44px;border:0;border-radius:50%;background:var(--bissap);color:#fff;cursor:pointer;transition:transform .15s}
+.fvr__x:hover{transform:scale(1.08)}
+.fvr__x:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.fvr__x--add{background:transparent;color:var(--bissap);box-shadow:inset 0 0 0 2px var(--bissap)}
+.fvr__x--add svg{fill:none;stroke:currentColor;stroke-width:2}
+.fvr__x--add:hover{background:var(--bissap);color:#fff}
+.fvr__x--add:hover svg{fill:currentColor}
+
+/* Ticket de courses : on voit d'abord ce qu'il reste à acheter, puis le panier */
+.tk{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:22px 22px 20px;border-radius:18px;background:#FFFDF8;box-shadow:0 1px 0 rgba(36,18,61,.08),0 18px 30px -18px rgba(36,18,61,.35)}
+.tk__k{display:flex;justify-content:space-between;gap:12px;margin:0 0 12px;font:700 .6875rem var(--f-text);letter-spacing:.14em;text-transform:uppercase}
+.tk__s{margin:0;font-size:.9375rem}
+.tk__s b{margin-right:2px;font-size:1.6rem;font-weight:400;line-height:1;vertical-align:-.1em}
+.tk__bar{display:flex;gap:16px;margin:8px 0 12px}
+.tk__lnk{padding:0;min-height:32px;border:0;background:none;color:var(--ink);font:700 .8125rem var(--f-text);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.tk__pg{height:10px;border-radius:99px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--ink);overflow:hidden}
+.tk__pg i{display:block;height:100%;border-radius:99px;background:var(--lime);transition:width .3s}
+.tk__pgt{margin:6px 0 0;font-size:.75rem;opacity:.75}
+.tk__perf{position:relative;flex:none;margin:16px -22px;border-top:2px dashed rgba(36,18,61,.3)}
+.tk__perf::before,.tk__perf::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--sable)}
+.tk__perf::before{left:-10px}.tk__perf::after{right:-10px}
+.tk__body{min-height:0;flex:1}
+.tk__l{margin:0;padding:0;list-style:none}
+.tk__l li+li{border-top:1.5px solid rgba(36,18,61,.12)}
+.tk__sec{margin:18px 0 4px;font:700 .6875rem var(--f-text);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.tk__i{position:relative;display:flex;align-items:flex-end;gap:8px;min-height:50px;padding:8px 0;font-size:1rem;cursor:pointer}
+.tk__i input{position:absolute;opacity:0;width:1px;height:1px}
+.tk__c{flex:none;align-self:center;width:26px;height:26px;margin-right:4px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink);transition:background-color .15s}
+.tk__i input:checked~.tk__c{background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%2324123D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 7.5l3 3 6-7'/%3E%3C/svg%3E") center/14px no-repeat}
+.tk__i input:focus-visible~.tk__c{outline:3px solid var(--bissap);outline-offset:2px}
+.tk__n{font-weight:700;line-height:1.25}
+.tk__d{flex:1;min-width:12px;margin-bottom:7px;border-bottom:2px dotted rgba(36,18,61,.35)}
+.tk__q{white-space:nowrap;font-size:.9375rem}
+.tk__i input:checked~.tk__n,.tk__i input:checked~.tk__q{text-decoration:line-through;opacity:.45}
+.tk__vide{margin:0;font-size:.9375rem;line-height:1.5}
+.tk__foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;padding-top:16px;border-top:2px solid var(--ink)}
+.tk__b{display:flex;align-items:center;justify-content:center;min-height:48px;border:0;border-radius:99px;background:var(--ink);color:var(--sable);font:700 .9375rem var(--f-text);text-decoration:none;cursor:pointer}
+.tk__b--wa{background:transparent;box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink)}
+.tk__b:focus-visible{outline:3px solid var(--bissap);outline-offset:2px}
+/* Bouton flottant (mobile) : renvoie vers le ticket */
+.tk__fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;min-height:52px;padding:0 22px;border:0;border-radius:99px;background:var(--ink);color:var(--sable);box-shadow:0 12px 24px -10px rgba(36,18,61,.6);font:700 .9375rem var(--f-text);cursor:pointer}
+.tk__fab[hidden],.tk__fab.is-off{display:none}
+
+/* Aucun favori : carnet vide */
+.fv-vide{display:grid;gap:32px;align-items:center;margin-top:16px}
+.fv-vide__p{max-width:40ch;margin:16px 0 24px;font-size:1.0625rem;line-height:1.5}
+.fv-vide__g{display:grid;gap:12px}
+.fvr--ghost{min-height:92px;background:transparent;box-shadow:inset 0 0 0 2px rgba(36,18,61,.25);border-radius:20px}
+.fvr--ghost:hover{transform:none;box-shadow:inset 0 0 0 2px rgba(36,18,61,.25)}
+.fvr--ghost .fvr__i{height:76px;padding:0;background:rgba(36,18,61,.08);box-shadow:none}
+.fvr--ghost .fvr__t{display:grid;gap:10px}
+.fvr--ghost .fvr__t i{display:block;height:12px;border-radius:99px;background:rgba(36,18,61,.12)}
+.fvr--ghost .fvr__t i+i{width:55%}
+.fvr--ghost .fvr__x{pointer-events:none}
+.dem{margin-top:56px}
+.dem h2{margin:0 0 16px;font-size:var(--t-h2,2.2rem)}
+
+@media (min-width:960px){
+  .fv__cols{grid-template-columns:minmax(0,1fr) 340px;gap:48px}
+  .tk{position:sticky;top:24px;max-height:calc(100svh - 48px)}
+  .tk__body{overflow:auto;overscroll-behavior:contain}
+  .tk__fab{display:none!important}
+  .fv-vide{grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px}
+}
+@media (max-width:640px){.fvr{flex-wrap:wrap}.fvr__a{flex:1 1 100%;gap:12px}.fvr__i{width:72px}.fvr__m>small{display:none}.fvr__act{width:100%;justify-content:flex-end}.fv__cols{padding-bottom:72px}}
+@media (prefers-reduced-motion:reduce){.fvr,.fvr__i,.fvr__x{transition:none}.fvr:hover{transform:none}}

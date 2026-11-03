@@ -1,169 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recettes - Recettes Faciles</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>">
-    <link rel="stylesheet" href="assets/css/recette.css">
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDXX5G0KM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YJDXX5G0KM');
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recette · ZodeTaboouf</title>
+<meta name="description" content="Une recette pas à pas, simple et bien expliquée.">
+<meta name="theme-color" content="#24123D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bricolage-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/pages/recette.css">
+<link rel="stylesheet" href="assets/css/pages/recette-responsive.css">
 </head>
 <body>
-     <!-- HEADER -->
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Recettes Faciles</h1>
-                    <p>Cuisine Simplifiée</p>
-                </div>
-            </a>
-            <a href="index.html" class="back-btn" aria-label="Retour à l'accueil">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="recipe-hero">
-        <div class="container">
-            <div class="recipe-image-container" id="recipeHero">
-                <!-- Rempli par JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- MAIN -->
-    <main class="main-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- SIDEBAR -->
-                <div class="sidebar-column">
-                    <!-- Ingrédients -->
-                    <section class="section">
-                        <div class="section-header">
-                            <div class="section-icon">
-                                <i class="fas fa-shopping-basket"></i>
-                            </div>
-                            <h2 class="section-title">Ingrédients</h2>
-                        </div>
-                        
-                        <div class="portions-selector">
-                            <span class="portions-label">Portions :</span>
-                            <div class="portions-input">
-                                <button class="portions-btn" id="decreasePortions" title="Réduire le nombre de portions" aria-label="Réduire le nombre de portions">
-                                    <i class="fas fa-minus"></i>
-                                    <span class="sr-only">Réduire le nombre de portions</span>
-                                </button>
-                                <span class="portions-value" id="portionsValue">4</span>
-                                <button class="portions-btn" id="increasePortions" title="Augmenter le nombre de portions" aria-label="Augmenter le nombre de portions">
-                                    <i class="fas fa-plus"></i>
-                                    <span class="sr-only">Augmenter le nombre de portions</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="ingredients-list" id="ingredientsList">
-                            <!-- JS -->
-                        </div>
-
-                        <div class="ingredient-actions">
-                            <button class="btn btn-primary" id="checkAllBtn">
-                                <i class="fas fa-check-double"></i>
-                                Tout cocher
-                            </button>
-                            <button class="btn btn-secondary" id="shoppingListBtn">
-                                <i class="fas fa-list"></i>
-                                Liste de courses
-                            </button>
-                        </div>
-                    </section>
-
-                    <!-- Nutrition -->
-                    <section class="section">
-                        <div class="section-header">
-                            <div class="section-icon">
-                                <i class="fas fa-chart-pie"></i>
-                            </div>
-                            <h2 class="section-title">Nutrition</h2>
-                        </div>
-                        <div class="nutrition-grid" id="nutritionGrid">
-                            <!-- JS -->
-                        </div>
-                    </section>
-                </div>
-
-                <!-- MAIN COLUMN -->
-                <div class="main-column">
-                    <!-- Préparation -->
-                    <section class="section">
-                        <div class="section-header">
-                            <div class="section-icon">
-                                <i class="fas fa-list-ol"></i>
-                            </div>
-                            <h2 class="section-title">Préparation</h2>
-                        </div>
-                        <div class="steps-list" id="stepsList">
-                            <!-- JS -->
-                        </div>
-                    </section>
-
-                    <!-- Astuces -->
-                    <section class="section">
-                        <div class="section-header">
-                            <div class="section-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h2 class="section-title">Astuces</h2>
-                        </div>
-                        <div class="tips-grid" id="tipsGrid">
-                            <!-- JS -->
-                        </div>
-                    </section>
-
-                    <!-- Actions -->
-                    <div class="recipe-actions">
-                        <button class="btn btn-primary" id="favoriteBtn">
-                            <i class="far fa-heart"></i>
-                            Ajouter aux favoris
-                        </button>
-                        <button class="btn btn-secondary" onclick="window.print()">
-                            <i class="fas fa-print"></i>
-                            Imprimer
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-   <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>© 2025 Recettes Faciles. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- TOAST -->
-    <div id="toastContainer"></div>
-
-    <script src="assets/js/database.js"></script>
-    <script src="assets/js/base.js"></script>
-    <script src="assets/js/recette.js"></script>
+<header id="app-header"></header>
+<main id="main"><div class="wrap rc" id="recette"><noscript>Cette page a besoin de JavaScript pour afficher la recette.</noscript></div></main>
+<div id="app-footer"></div>
+<script defer src="assets/js/data/recettes.js"></script>
+<script defer src="assets/js/data/etapes.js"></script>
+<script defer src="assets/js/data/categories.js"></script>
+<script defer src="assets/js/core/utils.js"></script>
+<script defer src="assets/js/core/storage.js"></script>
+<script defer src="assets/js/core/ingredients.js"></script>
+<script defer src="assets/js/core/layout.js"></script>
+<script defer src="assets/js/components/toast.js"></script>
+<script defer src="assets/js/core/menu.js"></script>
+<script defer src="assets/js/components/card-recette.js"></script>
+<script defer src="assets/js/pages/recette.js"></script>
+<script defer src="assets/js/pages/tabs-mobile.js"></script>
 </body>
 </html>

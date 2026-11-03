@@ -1,0 +1,119 @@
+/* RECETTE — responsive mobile & tablette. À charger APRÈS recette.css (rien d'autre n'est modifié). */
+
+.prog,.tbar,.rback{display:none}
+
+@media (max-width:899.98px){
+  #main{overflow-x:clip}
+  .rc{padding-bottom:32px}
+  .ract{position:static;display:flex;gap:10px;margin-top:20px;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .toasts,.undo{bottom:20px}
+  body.cuisine .toasts{bottom:84px}
+
+  /* Onglets en pastille */
+  .tabs{position:static;gap:6px;padding:5px;border-radius:99px;background:var(--sable-2);box-shadow:none}
+  .tabs button{border:0;box-shadow:none;background:none;font:500 .9375rem var(--f-text)}
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--lime);font-weight:700}
+  .tabs button span{font-weight:500;opacity:.7}
+
+  /* Barres de progression (créées par tabs-mobile.js) */
+  .prog{display:flex;align-items:center;gap:12px;margin:12px 0 6px;font-size:.8125rem;font-weight:700}
+  .prog__b{flex:1;height:10px;border-radius:99px;background:#fff;box-shadow:inset 0 0 0 2px var(--ink);overflow:hidden}
+  .prog__b i{display:block;height:100%;width:0;border-radius:99px;background:var(--lime);transition:width .3s}
+
+  /* Portions : une carte, − en contour, + en plein */
+  .portions{margin:14px 0 6px;padding:14px 16px;border-radius:22px;background:var(--sable-2)}
+  .portions button{box-shadow:inset 0 0 0 2px var(--ink)}
+  .portions #plus{background:var(--ink);color:var(--lime);box-shadow:none}
+
+  /* Ingrédients : nom ······ quantité ○ */
+  .ing label{align-items:center;gap:10px;min-height:54px;padding:8px 2px}
+  .ing label::before{order:4;content:"";flex:none;width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink);transition:background-color .15s}
+  .ing label:has(input:checked)::before{background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%2324123D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 7.5l3 3 6-7'/%3E%3C/svg%3E") center/12px no-repeat}
+  .ing label span{order:1}
+  .ing label::after{order:2;content:"";flex:1;min-width:12px;margin-top:8px;border-bottom:2px dotted rgba(36,18,61,.3)}
+  .ing label b{order:3}
+
+  /* Étapes : numéro dans un rond, l'étape en cours est une carte */
+  .steps li{border-bottom:0}
+  .steps label{align-items:center;gap:14px;padding:12px 4px}
+  .steps label::before{content:counter(s);flex:none;display:grid;place-items:center;width:40px;min-width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink);font:italic 400 1.0625rem var(--f-display);color:var(--ink)}
+  .steps p{flex:1;min-width:0}
+  .steps li:has(input:checked) label::before{content:"";opacity:1;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%2324123D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 7.5l3 3 6-7'/%3E%3C/svg%3E") center/16px no-repeat}
+  .steps li.is-now{margin:12px 0;border-radius:28px;background:#fff;box-shadow:0 0 0 2px var(--ink),0 16px 30px -16px rgba(36,18,61,.5)}
+  .steps li.is-now label{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:14px;padding:18px}
+  .steps li.is-now label::before{grid-area:1/1;width:44px;min-width:44px;height:44px;background:var(--ink);box-shadow:none;color:var(--lime);font-size:1.25rem}
+  .steps li.is-now label::after{content:"Étape en cours";grid-area:1/2;font:700 .75rem var(--f-text);letter-spacing:.16em;text-transform:uppercase;color:var(--bissap-txt)}
+  .steps li.is-now p{grid-column:1/-1;grid-row:2;font-size:1.1875rem;font-weight:700;line-height:1.4}
+  .steps li.is-now p::after{content:"Fait, suivante →";display:block;width:max-content;margin-top:16px;padding:0 24px;border-radius:99px;background:var(--lime);box-shadow:inset 0 0 0 2px var(--ink);font-size:1rem;line-height:46px}
+  .steps li.is-now:last-child p::after{content:"Terminé ✓"}
+}
+@media (min-width:640px) and (max-width:899.98px){
+  .more .grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ===== MOBILE (< 720px) : bloc sombre arrondi avec l'assiette, la feuille claire monte par-dessus ===== */
+@media (max-width:719.98px){
+  .crumb{display:none}
+  .rc{position:relative;isolation:isolate;display:flow-root;padding-top:8px}   /* flow-root : la marge haute de la feuille reste dans la page */
+  .sheet{position:relative;grid-template-areas:"head" "tabs" "ing" "prep";gap:18px;margin:290px calc(var(--pad) * -1) 0;padding:34px calc(var(--pad) + 4px) 40px;border-radius:32px 32px 0 0;box-shadow:none}
+  .sheet::before{content:"";position:absolute;top:10px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:rgba(36,18,61,.22)}
+
+  /* Bloc sombre : disque lime autour de la photo ronde, derrière la feuille */
+  .plate{--pz:min(54vw,210px);grid-area:auto;position:absolute;z-index:-1;top:-290px;left:var(--pad);right:auto;width:calc(100% - var(--pad) * 2);justify-self:stretch;align-self:start;height:322px;margin:0;aspect-ratio:auto;border-radius:32px 32px 0 0;background:radial-gradient(circle calc(var(--pz) / 2 + 22px) at 50% 160px,var(--lime) 0 99%,transparent 100%),var(--ink)}
+  .plate img{position:absolute;left:50%;top:calc(160px - var(--pz) / 2);width:var(--pz);height:var(--pz);transform:translateX(-50%);box-shadow:0 0 0 6px #fff,0 18px 36px -10px rgba(0,0,0,.5)}
+  .stamp{left:18px;top:auto;bottom:32px;width:96px;transform:rotate(-10deg);box-shadow:0 0 0 4px var(--ink),0 0 0 6px var(--bissap)}
+  .rback{position:absolute;left:16px;top:16px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--sable);color:var(--ink);text-decoration:none}
+  .rback::before{content:"";width:10px;height:10px;margin-left:4px;border:solid currentColor;border-width:0 0 2.4px 2.4px;transform:rotate(45deg)}
+  .sheet #fav{position:absolute;top:-274px;right:calc(var(--pad) + 16px);width:44px;height:44px;padding:0;justify-content:center;border-radius:50%;box-shadow:none}
+  .sheet #fav:not([aria-pressed="true"]){background:var(--sable);color:var(--bissap)}
+  #fav span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* Tête de fiche alignée à gauche, comme sur ordinateur ; trois pastilles */
+  .rc h1.script{margin:10px 0 8px;font-size:clamp(3rem,14vw,3.8rem)}
+  .lead{margin:8px 0 0;font-size:1rem}
+  .rmeta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;border:0}
+  .rmeta div,.rmeta div:first-child{flex:none;display:flex;align-items:center;min-height:44px;padding:0 18px;border:0;border-radius:99px;background:var(--sable-2)}
+  .rmeta div+div{border-left:0}
+  .rmeta div:nth-child(1){background:var(--lime)}
+  .rmeta div:nth-child(3){background:none;box-shadow:inset 0 0 0 2px var(--ink)}
+  .rmeta dt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .rmeta dd{margin:0;font:500 1rem var(--f-text);letter-spacing:0}
+  .rmeta div:nth-child(3) dd::after{content:" étapes"}
+  .ract .btn{flex:1;min-height:52px}
+  .ract .icb{width:52px;height:52px}
+
+  /* Barre du haut : ← et les deux onglets, visible quand les onglets d'origine sont sortis de l'écran (créée par tabs-mobile.js) */
+  .tbar{position:fixed;top:0;left:0;right:0;z-index:45;display:flex;align-items:center;gap:10px;height:64px;padding:0 16px;background:#FCFAF6;border-bottom:1px solid rgba(36,18,61,.15);transform:translateY(-100%);transition:transform .3s}
+  .tbar.on{transform:none}
+  .tbar__x{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ink);text-decoration:none;font-size:1.25rem}
+  .tbar__t{flex:1;min-width:0;display:flex;gap:4px;padding:4px;border-radius:99px;background:var(--sable-2)}
+  .tbar__t button{flex:1;min-width:0;min-height:40px;padding:0 6px;border:0;border-radius:99px;background:none;font:500 .875rem var(--f-text);white-space:nowrap;cursor:pointer}
+  .tbar__t button[aria-pressed="true"]{background:var(--ink);color:var(--lime);font-weight:700}
+  .tbar__t button span{font-weight:500;opacity:.7}
+
+  body.cuisine .sheet::before,body.cuisine .tbar{display:none}
+  body.cuisine .sheet{margin:0;padding:0;border-radius:0}
+  body.cuisine .tabs{position:sticky;top:0;box-shadow:0 0 0 8px var(--sable)}
+}
+
+@media (max-width:359.98px){.tbar__t button span{display:none}}
+
+/* ===== TABLETTE (720 → 899px) : même mise en page que sur ordinateur, avec des marges réduites ===== */
+@media (min-width:720px) and (max-width:899.98px){
+  .rc{padding-bottom:0}
+  .sheet{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);grid-template-areas:"head photo" "ing prep";gap:32px 36px;padding:40px 32px 44px}
+  .tabs{display:none}
+  .sheet[data-tab] .ing,.sheet[data-tab] .prep{display:block}
+  .rc h1.script{margin-top:14px;font-size:clamp(3.4rem,7vw,4.4rem)}
+  .ract{flex-wrap:wrap}
+  .ract .btn{flex:0 0 auto}
+  .plate{align-self:center;justify-self:end;width:100%;max-width:300px;margin:8px 10px 8px 0}
+  .plate img{box-shadow:0 0 0 10px rgba(255,255,255,.8),0 24px 50px -12px rgba(36,18,61,.38)}
+  .stamp{left:-12px;bottom:6px;width:100px}
+  body.cuisine .sheet{grid-template-columns:1fr;gap:28px}
+}
+
+@media (hover:none){
+  .icb:hover{background:none;color:inherit}
+  .portions button:hover{background:none}
+}

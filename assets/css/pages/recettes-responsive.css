@@ -1,0 +1,45 @@
+/* RECETTES — responsive. À charger APRÈS recettes.css (rien d'autre n'est modifié). */
+
+/* Cartes : la ligne « durée · niveau » descend au bas de chaque carte, elles s'alignent sur toute la rangée */
+.grille .cr{display:flex;flex-direction:column}
+.grille .cr__t{flex:1 1 auto}
+.grille .cr__m{margin-top:4px}
+@media (min-width:768px){.grille{gap:28px 16px}}
+
+/* Pastilles de catégories (créées par filtres-mobile.js), uniquement sous 1024px */
+.cats-strip{display:flex;gap:8px;margin-inline:calc(var(--pad) * -1);padding:2px var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+.cats-strip::-webkit-scrollbar{display:none}
+.cats-strip .fcat{flex:none;width:auto;gap:8px;padding:0 16px;background:var(--sable-2);font-weight:500;white-space:nowrap}
+.cats-strip .fcat span{font-size:.8125rem}
+.cats-strip .fcat[aria-pressed=true]{background:var(--ink);color:var(--lime);font-weight:700}
+
+@media (min-width:1024px){
+  .cats-strip{display:none}
+  .filtres{max-height:calc(100svh - 32px);overflow-y:auto;overscroll-behavior:contain}   /* la barre latérale reste atteignable sur un écran bas */
+}
+
+/* Mobile et tablette : plus de barre latérale, la grille prend toute la largeur ; niveau et durée dans une feuille qui monte du bas */
+@media (max-width:1023.98px){
+  #main{overflow-x:clip}
+  .lr__body{grid-template-columns:minmax(0,1fr)}
+  .filtres{display:none}
+  .mf{display:block}
+  .mf summary{min-height:48px;padding:0 20px}
+
+  /* Barre d'outils compacte : pastilles / [Filtres] [Trier] / nombre de recettes / filtres actifs (seulement s'il y en a) / résultats */
+  .lr__main{grid-template-columns:auto 1fr;grid-template-areas:"strip strip" "mf tri" "cnt cnt" "act act" "res res"}
+  .lr__main>.mf{margin-top:14px;justify-self:start}
+  .bar select{margin-top:14px;min-height:48px}
+  #compte{margin-top:16px}
+  .actifs{margin-top:12px}
+
+  .mf__in .fcat,.mf__in>h2:first-child{display:none}   /* les catégories sont déjà dans les pastilles */
+  .mf__in>h2:nth-of-type(2){margin-top:0}
+  .mf[open] .mf__in{position:fixed;left:max(0px,calc(50% - 280px));right:max(0px,calc(50% - 280px));bottom:0;z-index:71;max-height:82svh;margin:0;padding:34px 20px 104px;overflow-y:auto;border-radius:28px 28px 0 0;box-shadow:0 -10px 40px rgba(36,18,61,.25);animation:feuille .35s cubic-bezier(.2,.8,.2,1)}
+  .mf[open] .mf__in::before{content:"";position:absolute;top:12px;left:50%;width:44px;height:5px;border-radius:3px;background:rgba(36,18,61,.25);transform:translateX(-50%)}
+  .mf__bd{position:fixed;inset:0;z-index:70;background:rgba(36,18,61,.5)}
+  .mf__foot{position:fixed;left:max(0px,calc(50% - 280px));right:max(0px,calc(50% - 280px));bottom:0;z-index:72;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));background:var(--sable-2);box-shadow:0 -1px 0 rgba(36,18,61,.12)}
+  .mf__foot .btn{width:100%;min-height:52px;background:var(--palme);color:var(--ink)}
+  body.sheet-open{overflow:hidden}
+}
+@keyframes feuille{from{transform:translateY(36px);opacity:0}}

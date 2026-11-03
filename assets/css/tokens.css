@@ -1,0 +1,18 @@
+@font-face{font-family:Fraunces;src:url(../../fonts/fraunces-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../../fonts/fraunces-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../../fonts/fraunces-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../../fonts/fraunces-600-italic.woff2) format("woff2");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url(../../fonts/bricolage-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url(../../fonts/bricolage-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url(../../fonts/bricolage-700.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{
+  /* Accent unique : bissap. Fond : sable. Texte et blocs sombres : ink. Lime : uniquement sur fond sombre. */
+  --ink:#24123D;--bissap:#D6215B;--bissap-txt:#B81A4C;--palme:#FF6B2C;--lime:#D9EA4C;--sable:#F6EFE4;
+  /* Surface neutre (sidebar, pastilles, fond d'image). --lilas garde son nom pour ne rien casser mais est maintenant neutre. */
+  --sable-2:#E9DFCD;--lilas:var(--sable-2);
+  --f-display:Fraunces,"Iowan Old Style",Georgia,serif;
+  --f-text:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-card:26px;--r-pill:999px;--gap:12px;--pad:clamp(16px,4vw,32px);--max:1280px;
+  --t-hero:clamp(2.9rem,9vw,6rem);--t-h2:clamp(1.75rem,4vw,2.5rem);--t-card:clamp(1.6rem,3vw,2rem);
+  --focus:3px solid var(--bissap);
+}

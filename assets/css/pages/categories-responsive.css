@@ -1,0 +1,46 @@
+/* CATÉGORIES — ajustements mobile (complète categories.css) */
+
+/* Tactile : pas de « soulèvement » au survol, retour au toucher */
+@media (hover:none){
+  .cg-c:hover{transform:none}
+  .cg-c:hover .cg-c__p img{transform:none}
+  .cg-c:hover .cg-c__q{transform:rotate(-8deg)}
+  .cg-c:active{transform:scale(.98)}
+}
+
+/* Mobile */
+@media (max-width:767.98px){
+  .cg{padding-top:0}
+  .cg__head{flex-direction:column;align-items:flex-start;gap:8px}
+  .cg__sub{max-width:none;font-size:1rem}
+
+  /* Petites tuiles : libellé en haut (2 lignes), titre, photo en bas à droite.
+     Le titre est relevé de la hauteur visible de la photo : il ne peut plus passer dessous, quelle que soit sa longueur.
+     (largeur de la tuile = 100cqw + 32px de marges ; la photo en fait la moitié, plafonnée à 130px, décalée de 10px vers le bas) */
+  .cg-c{min-height:190px;padding:16px}
+  .cg-c__n{padding-right:44px}
+  .cg-c:not(.cg-c--africain) .arrow{top:10px;right:10px;width:34px;height:34px}
+  .cg-c:not(.cg-c--africain) .arrow svg{width:16px;height:16px}
+  .cg-c__t{max-width:100%;padding-right:0;padding-bottom:44px;padding-bottom:min(calc(50cqw - 2px),112px)}
+  .cg-c h2{font-size:clamp(1.1rem,4.8vw,1.45rem);line-height:1.05;hyphens:manual;overflow-wrap:normal}
+  .cg-c__p{width:min(50%,130px);right:-10px;bottom:-10px}
+  .cg-c__q{width:min(48%,125px);right:-8px;bottom:-8px;font-size:2.6rem}
+
+  /* Grande tuile « Plats Africains » : titre sur deux lignes, photo à droite */
+  .cg-c--africain{min-height:250px}
+  .cg-c--africain .cg-c__n{padding-right:56px}
+  .cg-c--africain .cg-c__t{padding-bottom:0}
+  .cg-c--africain h2{max-width:min-content;font-size:clamp(2.2rem,11vw,3rem)}
+  .cg-c--africain p{max-width:24ch}
+  .cg-c--africain .cg-c__p{width:50%;right:-40px;bottom:-60px}
+}
+
+/* Très petits écrans (360 px et moins, jusqu'à 320 px) : flèche plus petite, donc plus de place pour le libellé */
+@media (max-width:360px){
+  .cg-c{min-height:180px;padding:14px}
+  .cg-c__n{letter-spacing:.04em;padding-right:34px}
+  .cg-c:not(.cg-c--africain) .arrow{top:8px;right:8px;width:28px;height:28px}
+  .cg-c:not(.cg-c--africain) .arrow svg{width:14px;height:14px}
+  .cg-c--africain{min-height:236px}
+  .cg-c--africain .cg-c__t{padding-bottom:0}
+}

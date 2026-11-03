@@ -1,0 +1,13 @@
+.er{padding:24px 0 8px;text-align:center}
+.er__art{position:relative;width:260px;height:190px;margin:0 auto}
+.er__art::before,.er__art::after{content:"";position:absolute;border-radius:50%}
+.er__art::before{left:30px;top:10px;width:170px;height:170px;background:var(--lilas)}
+.er__art::after{right:20px;top:60px;width:110px;height:110px;background:var(--palme)}
+.er__art b{position:absolute;inset:0;z-index:1;display:grid;place-items:center;font:600 6rem var(--f-display);letter-spacing:-.04em}
+.er__art b i{color:var(--bissap)}
+.er h1{margin:26px 0 12px;font-size:clamp(2.4rem,7vw,3.6rem)}
+.er h1 i{color:var(--bissap)}
+.er p{max-width:34ch;margin:0 auto 22px;opacity:.85}
+.er__s{max-width:560px;margin:44px auto 0;text-align:left}
+.er__s h2{margin-bottom:6px;font:700 .75rem var(--f-text);letter-spacing:.14em;text-transform:uppercase;color:var(--bissap-txt)}
+.er__s .row__n b{font:400 1.5rem var(--f-display)}

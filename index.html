@@ -1,203 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recettes Faciles - Découvrez la cuisine simplifiée</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>">
-    <link rel="stylesheet" href="assets/css/style.css">
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDXX5G0KM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YJDXX5G0KM');
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZodeTaboouf · Recettes pour tous les goûts</title>
+<meta name="description" content="83 recettes pas à pas, de la cuisine africaine aux grands classiques.">
+<meta name="theme-color" content="#24123D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bricolage-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/pages/home.css">
+<link rel="stylesheet" href="assets/css/pages/home-responsive.css">
+<link rel="stylesheet" href="assets/css/pages/hero.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Recettes Faciles</h1>
-                    <p>Cuisine Simplifiée</p>
-                </div>
-            </a>
-            <div class="header-actions">
-                <button class="btn-icon" id="searchBtn" aria-label="Rechercher">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="btn-icon" id="favoritesBtn" aria-label="Mes favoris">
-                    <i class="fas fa-heart"></i>
-                    <span class="badge" id="favoritesCount">0</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- OVERLAY DE RECHERCHE -->
-    <div class="search-overlay" id="searchOverlay">
-        <button class="btn-close-search" id="closeSearch" aria-label="Fermer la recherche">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Que souhaitez-vous cuisiner aujourd'hui ?">
-                <div class="search-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-            </div>
-            <div class="search-suggestions">
-                <h3><i class="fas fa-lightbulb"></i> Suggestions populaires</h3>
-                <div class="suggestion-tags" id="suggestionsContainer">
-                    <!-- Suggestions générées par JS -->
-                </div>
-            </div>
-        </div>
+<header id="app-header"></header>
+<main id="main">
+  <section class="hx" aria-labelledby="titre">
+  <!-- chaque silhouette : un seul path (<use> deux fois : aplat puis grain) et son propre filtre, pour que le grain s'affiche même quand l'autre SVG est en display:none -->
+  <svg class="hx__blob hx__blob--d" viewBox="0 0 1200 620" preserveAspectRatio="none" aria-hidden="true"><defs><path id="hxp-d" d="M78 118C101 90 150 70 200 64C250 58 320 83 380 80C440 77 500 47 560 48C620 49 687 85 740 86C793 87 835 66 880 56C925 46 969 20 1010 26C1051 32 1096 62 1124 92C1152 122 1172 165 1176 205C1180 245 1149 289 1150 330C1151 371 1185 416 1180 452C1175 488 1154 525 1122 548C1090 571 1037 587 990 588C943 589 888 551 840 552C792 553 753 590 700 592C647 594 582 565 520 566C458 567 388 599 330 598C272 597 216 583 170 562C124 541 79 505 56 470C33 435 29 390 30 350C31 310 52 271 60 232C68 193 55 146 78 118Z"/><filter id="hxg-d" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><use href="#hxp-d" fill="#24123D"/><use href="#hxp-d" fill="#fff" filter="url(#hxg-d)"/></svg>
+  <svg class="hx__blob hx__blob--m" viewBox="0 0 390 1010" preserveAspectRatio="none" aria-hidden="true"><defs><path id="hxp-m" d="M30 100C46 74 88 46 120 41C152 36 182 52 212 52C242 52 274 32 300 32C326 32 352 50 364 72C376 94 378 128 377 170C376 212 368 262 368 320C368 372 378 425 378 480C378 535 368 595 368 650C368 705 378 764 376 810C374 856 366 898 350 925C334 952 308 968 282 972C256 976 226 944 196 946C166 948 131 985 104 984C77 983 51 967 36 940C21 913 14 867 14 820C14 773 22 713 22 660C22 607 12 553 12 500C12 447 22 392 22 340C22 288 14 231 14 190C14 149 14 124 30 100Z"/><filter id="hxg-m" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><use href="#hxp-m" fill="#24123D"/><use href="#hxp-m" fill="#fff" filter="url(#hxg-m)"/></svg>
+  <div class="hx__txt">
+    <p class="hx__k"><span id="nb">83</span>&nbsp;recettes à découvrir</p>
+    <h1 id="titre">Alors,<br><span class="hx__nw">on cuisine <span class="hx__end"><span class="hx__q">quoi<svg class="hx__brush" viewBox="0 0 170 30" preserveAspectRatio="none" aria-hidden="true"><path d="M3 20C40 9 96 22 166 8" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M26 28C64 21 108 28 150 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".8"/></svg></span>&nbsp;?</span></span></h1>
+    <!-- le formulaire est un ticket : corps (3 lignes à points de conduite) + souche « Trouver » -->
+    <div class="hx__ticket"><form class="hx__form" id="search" role="search" aria-label="Trouver une recette">
+      <div class="hx__body">
+        <label class="hx__f hx__f--cat"><span>J’ai envie de</span><i class="hx__lead" aria-hidden="true"></i><span class="hx__sel"><span class="hx__val" aria-hidden="true"></span><select id="f-cat"><option value="">n’importe quoi</option></select></span></label>
+        <label class="hx__f"><span>en</span><i class="hx__lead" aria-hidden="true"></i><span class="hx__sel"><span class="hx__val" aria-hidden="true"></span><select id="f-temps"><option value="15">15 min</option><option value="30" selected>30 min</option><option value="60">1 h</option><option value="">peu importe</option></select></span></label>
+        <label class="hx__f"><span>niveau</span><i class="hx__lead" aria-hidden="true"></i><span class="hx__sel"><span class="hx__val" aria-hidden="true"></span><select id="f-niv"><option value="">tous</option><option value="Très facile">très facile</option><option value="Facile">facile</option><option value="Moyen">moyen</option><option value="Difficile">difficile</option></select></span></label>
+      </div>
+      <button class="hx__go" type="submit"><span>Trouver</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+    </form></div>
+    <a class="hx__all" href="recettes.html">ou parcourir toutes les recettes <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="hx__stage">
+    <i class="hx__tache" aria-hidden="true"></i>
+    <div class="hx__mascot">
+      <svg class="hx__ing hx__ing--leaf hx__ing--a" viewBox="0 0 60 60" aria-hidden="true"><path d="M6 54C4 24 22 6 54 6c2 30-14 50-48 48z" fill="#6E9E2E" stroke="#24123D" stroke-width="3" stroke-linejoin="round"/><path d="M12 44C16 30 28 18 44 12c-2 10-10 22-32 32z" fill="#9CC24A" opacity=".55"/><path d="M8 52C22 38 34 26 50 10M24 40c4-1 8-1 12 1M30 32c3-1 7-2 10 0" fill="none" stroke="#24123D" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="hx__ing hx__ing--tom" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="#C8105A" stroke="#24123D" stroke-width="3"/><circle cx="30" cy="30" r="19" fill="#F05A22"/><g fill="#F6EFE4"><ellipse cx="30" cy="19" rx="3" ry="4.5"/><ellipse cx="41" cy="30" rx="4.5" ry="3"/><ellipse cx="30" cy="41" rx="3" ry="4.5"/><ellipse cx="19" cy="30" rx="4.5" ry="3"/></g><path d="M14 22a18 18 0 0 1 10-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg>
+      <img class="hx__img" src="assets/img/mascotte-hero.webp" alt="Mascotte de Recettes Faciles : un jeune cuisinier qui vous présente un plat" width="667" height="1296" fetchpriority="high">
+      <div class="hx__live" id="plate"></div>
     </div>
-
-    <!-- CONTENU PRINCIPAL -->
-    <main class="main-content">
-        <div class="container">
-            <!-- HERO SECTION -->
-            <section class="hero fade-in">
-                <div class="hero-bg"></div>
-                <div class="hero-content">
-                    <h2>Des recettes simples comme bonjour</h2>
-                    <p>Découvrez notre collection de recettes faciles et savoureuses. Des plats qui émerveillent sans complexité, pour des moments culinaires réussis à coup sûr.</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat slide-up delay-1">
-                            <div class="stat-number" id="totalRecipes">0</div>
-                            <div class="stat-label">Recettes</div>
-                        </div>
-                        <div class="stat slide-up delay-2">
-                            <div class="stat-number">15-90</div>
-                            <div class="stat-label">Minutes</div>
-                        </div>
-                        <div class="stat slide-up delay-3">
-                            <div class="stat-number" id="avgRating">4.7</div>
-                            <div class="stat-label">Satisfaction</div>
-                        </div>
-                        <div class="stat slide-up delay-4">
-                            <div class="stat-number">8</div>
-                            <div class="stat-label">Catégories</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CATÉGORIES MOBILE (DÉROULANTE) -->
-            <section class="categories-section mobile-only">
-                <div class="categories-dropdown">
-                    <div class="dropdown-header" id="dropdownToggle">
-                        <h3><i class="fas fa-filter"></i> Parcourir les catégories</h3>
-                        <i class="fas fa-chevron-down dropdown-icon" id="dropdownIcon"></i>
-                    </div>
-                    <div class="categories-list" id="categoriesList">
-                        <div class="categories-grid" id="categoriesContainer">
-                            <!-- Catégories générées par JS -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CATÉGORIES DESKTOP (HORIZONTAL) -->
-            <section class="categories-section desktop-only">
-                <div class="categories-horizontal" id="categoriesDesktop">
-                    <!-- Catégories générées par JS -->
-                </div>
-            </section>
-
-            <!-- RECETTES POPULAIRES -->
-            <section class="recettes-section slide-up">
-                <div class="section-header">
-                    <h2 class="section-title">Les incontournables</h2>
-                    <a href="categories.html?categorie=all" class="see-all">Tout explorer <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="recettes-grid" id="popularRecettes">
-                    <!-- Recettes générées par JS -->
-                </div>
-            </section>
-
-            <!-- RECETTES AFRICAINES -->
-            <section class="recettes-section highlight-section slide-up">
-                <div class="section-header">
-                    <h2 class="section-title">Voyage culinaire africain</h2>
-                    <a href="categories.html?categorie=africain" class="see-all">Découvrir <i class="fas fa-compass"></i></a>
-                </div>
-                <div class="recettes-grid" id="africanRecettes">
-                    <!-- Recettes africaines générées par JS -->
-                </div>
-            </section>
-
-            <!-- RECETTES RAPIDES -->
-            <section class="recettes-section slide-up">
-                <div class="section-header">
-                    <h2 class="section-title">Express & Savoureux</h2>
-                    <span class="see-all">Prêt en 30min max</span>
-                </div>
-                <div class="recettes-grid" id="quickRecettes">
-                    <!-- Recettes rapides générées par JS -->
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-           
-              
-            <div class="footer-bottom">
-                <p>© 2025 Recettes Faciles. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL FAVORIS -->
-    <div class="modal" id="favoritesModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-heart"></i> Mes Recettes Coup de Cœur</h3>
-                <button class="btn-close-modal" id="closeFavorites" aria-label="Fermer">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="favoritesList">
-                    <!-- Favoris générés par JS -->
-                </div>
-            </div>
-        </div>
+  </div>
+</section>
+  <div class="wrap">
+    <section class="h-sec" aria-labelledby="t-cats">
+      <div class="h-tab"><b id="t-cats">Par envie</b><i></i><a href="categories.html">Toutes les catégories</a></div>
+      <div class="h-cats" id="cats"></div>
+    </section>
+    <div class="h-sec h-duo">
+      <section aria-labelledby="t-rapide"><div class="h-tab"><b id="t-rapide">En moins de 30 min</b><i></i><a href="recettes.html?temps=30">Voir tout</a></div><div id="rapide"></div></section>
+      <aside class="h-note" aria-label="Astuce du jour"><div class="h-script">Astuce du jour</div><p id="astuce"></p><a class="btn" href="recettes.html?temps=30">Voir les recettes rapides</a></aside>
     </div>
-
-    <!-- MODAL RÉSULTATS RECHERCHE -->
-    <div class="modal" id="searchResultsModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-search"></i> Résultats de recherche</h3>
-                <button class="btn-close-modal" id="closeSearchResults" aria-label="Fermer">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="searchResultsContent">
-                    <!-- Résultats générés par JS -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="assets/js/database.js"></script>
-    <script src="assets/js/base.js"></script>
+    <section class="h-sec" aria-labelledby="t-aimees">
+      <div class="h-tab"><b id="t-aimees">À découvrir</b><i></i></div>
+      <div class="h-loved" id="aimees"></div>
+    </section>
+    <div class="h-sign" aria-hidden="true"><i></i><span class="h-script">Simple &amp; bon !</span><i></i></div>
+  </div>
+</main>
+<div id="app-footer"></div>
+<script defer src="assets/js/data/recettes.js"></script>
+<script defer src="assets/js/data/categories.js"></script>
+<script defer src="assets/js/core/utils.js"></script>
+<script defer src="assets/js/core/storage.js"></script>
+<script defer src="assets/js/core/layout.js"></script>
+<script defer src="assets/js/core/menu.js"></script>
+<script defer src="assets/js/components/toast.js"></script>
+<script defer src="assets/js/components/card-recette.js"></script>
+<script defer src="assets/js/components/card-categorie.js"></script>
+<script defer src="assets/js/pages/home.js"></script>
 </body>
 </html>

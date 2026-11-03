@@ -1,0 +1,77 @@
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border:0;border-radius:var(--r-pill);background:var(--ink);color:var(--lime);font-weight:700;text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn--palme{background:var(--palme);color:var(--ink)}
+.btn--bissap{background:var(--bissap);color:#fff}
+.btn--line{background:none;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.arrow{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--lime)}
+.lien{font-size:.875rem}
+/* Header */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);max-width:var(--max);margin:auto}
+.logo{font:600 1.4rem var(--f-display);text-decoration:none;letter-spacing:-.02em}
+.logo i{color:var(--bissap)}
+.nav{display:none;gap:28px;font-weight:500}
+.nav a{text-decoration:none;padding:6px 0;border-bottom:2.5px solid transparent}
+.nav a[aria-current=page]{border-color:var(--bissap)}
+.badge{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:6px;padding:0 6px;border-radius:99px;background:var(--bissap);color:#fff;font-size:.75rem;font-weight:700}
+.badge:empty{display:none}
+.menu-btn{min-height:44px;padding:0 18px;border:0;border-radius:var(--r-pill);background:var(--ink);color:var(--sable);font-weight:700;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:50;background:var(--ink);color:var(--sable);padding:18px var(--pad);overflow:auto}
+.menu[hidden]{display:none}
+.menu__top{display:flex;justify-content:space-between;align-items:center}
+.menu__top .menu-btn{background:var(--lime);color:var(--ink)}
+.menu a.big{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1.5px solid rgba(246,239,228,.25);font:400 2.8rem var(--f-display);text-decoration:none}
+.menu .niveaux{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 28px}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:var(--r-pill);background:var(--lilas);color:var(--ink);font-weight:500;text-decoration:none}
+@media (min-width:768px){.nav{display:flex}.menu-btn--open{display:none}}
+/* Footer */
+.ftr{margin-top:72px;background:var(--ink);color:var(--sable);padding:48px 0}
+.ftr .wrap{display:flex;flex-wrap:wrap;gap:40px 72px}
+.ftr .logo{font-size:2.8rem;line-height:.95}
+.ftr .logo i{color:var(--lime)}
+.ftr h2{font:700 .75rem var(--f-text);letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:10px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ftr a{text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+/* Carte recette : fond neutre pendant le chargement de l'image */
+.cr{position:relative}
+.cr__img{display:block;aspect-ratio:1;border-radius:24px;overflow:hidden;background:var(--sable-2)}
+.cr__img img{width:100%;height:100%;object-fit:cover}
+.cr__t{display:block;margin-top:10px;font-weight:700;text-decoration:none}
+.cr__m{font-size:.8125rem;opacity:.72}
+.heart{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:var(--sable);color:var(--bissap);cursor:pointer}
+.heart svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.heart[aria-pressed=true] svg{fill:currentColor}
+/* Ligne rapide */
+.row{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1.5px solid var(--ink);text-decoration:none}
+.row__t{width:92px;font:400 2.1rem/1 var(--f-display);letter-spacing:-.03em}
+.row__t small{font:400 .875rem var(--f-text)}
+.row__n{flex:1}.row__n b{display:block}.row__n span{font-size:.8125rem;opacity:.72}
+/* Toast */
+.toasts{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:80;display:grid;gap:8px}
+.toast{padding:12px 20px;border-radius:var(--r-pill);background:var(--ink);color:var(--sable);font-weight:500}
+.erreur{margin:16px var(--pad);padding:16px 20px;border-radius:var(--r-card);background:var(--bissap);color:#fff}
+.erreur code{background:rgba(0,0,0,.2);padding:2px 6px;border-radius:6px}
+/* Barre de recherche (partagée) */
+.search{display:flex;padding:5px;border-radius:var(--r-pill);background:var(--sable)}
+.search input{flex:1;min-width:0;min-height:44px;padding:0 16px;border:0;background:none;outline:0}
+.search input::placeholder{color:var(--ink);opacity:.6}
+/* Pastilles de filtre et grille de cartes (partagées) */
+.chips{display:flex;gap:8px;margin-inline:calc(var(--pad) * -1);padding:0 var(--pad) 2px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.fchip{flex:none;min-height:44px;padding:0 18px;border:0;border-radius:99px;background:var(--lilas);font-weight:500;cursor:pointer}
+.fchip[aria-pressed=true]{background:var(--bissap);color:#fff;font-weight:700}
+.fchip--o{background:none;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.fchip--o[aria-pressed=true]{background:var(--ink);color:var(--lime)}
+.grille{display:grid;grid-template-columns:1fr 1fr;gap:20px 12px}
+.ftr{content-visibility:auto;contain-intrinsic-size:auto 320px}
+.btn:active,.heart:active,.fchip:active{transform:scale(.97)}
+/* Bouton fantôme (filtres actifs, actions secondaires) : jamais souligné */
+.ghost{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:0;border-radius:var(--r-pill);background:none;box-shadow:inset 0 0 0 1.5px var(--ink);font-weight:500;cursor:pointer;transition:background-color .15s,color .15s}
+.ghost:hover{background:var(--ink);color:var(--sable)}
+.ghost[aria-expanded=true]{background:var(--ink);color:var(--sable)}
+/* Bandeau d'annulation */
+.undo{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:14px;padding:8px 8px 8px 20px;border-radius:var(--r-pill);background:var(--ink);color:var(--sable);max-width:calc(100vw - 32px)}
+.undo[hidden]{display:none}
+.undo .ghost{color:var(--lime);box-shadow:inset 0 0 0 1.5px var(--lime)}
+.undo .ghost:hover{background:var(--lime);color:var(--ink)}
